@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
   <title>Document</title>
 </head>
 <body>
-  <h1>Dashboard</h1>
-<p>Hoi  <%- user.name %> </p>
-<p>Al onze gebruikers</p>
-<ul>
-    <% users.forEach((user) => { %>
-        <li>
-      <%- user.name %>
-        </li>
-    <% }); %>
-  </ul>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+  <div class="container">
+    <div class="row1">
+      <h1>Dashboard</h1>
+      <p>Hoi  <%- user.name %> </p>
+      <a href="/users/logout">Logout</a>
+    </div>
+  </div>
 </body>
 </html>
