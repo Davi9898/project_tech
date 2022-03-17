@@ -8,6 +8,7 @@ const passport = require('passport')
 
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
 
 // Passport config
 require('./config/passport')(passport);
@@ -56,6 +57,6 @@ app.use('/', require('./routes/index'));
 
 app.use('/users', require('./routes/users'));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
