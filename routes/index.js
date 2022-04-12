@@ -8,12 +8,12 @@ router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
 
 // Dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) =>
-  User.find( { }, (error, users) => {
+  User.find({}, (error, users) => {
     res.render('dashboard', {
       user: req.user,
       users: users
     })
-  })  
+  })
 );
 
 module.exports = router;

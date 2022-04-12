@@ -18,7 +18,7 @@ require('./config/passport')(passport);
 const db = process.env.MONGODB;
 
 // Connecting to MongoDB
-mongoose.connect(db, { useNewUrlParser: true})
+mongoose.connect(db, { useNewUrlParser: true })
     .then(() => console.log('MONGODB connected...'))
     .catch(err => console.log(err));
 
@@ -27,7 +27,7 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 // BodyParser
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 //Express session
 app.use(session({
@@ -44,12 +44,12 @@ app.use(passport.session());
 app.use(flash());
 
 // Globale variabelen om met flash messages te requesten
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
     next();
-  });
+});
 
 
 //Routes die nodig zijn

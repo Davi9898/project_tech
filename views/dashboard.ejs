@@ -1,9 +1,26 @@
+<div class="container">
+  <div class="row1">
 
-<body>
-  <div class="container">
-    <div class="row1">
-      <h1>Dashboard</h1>
-      <p>Hoi  <%- user.name %> </p>
-      <a href="/users/logout">Logout</a>
-    </div>
+    <h1>Dashboard</h1>
+    <p>Hi <%- user.name %>
+    </p>
+
+
+
+
+
+    <p>We love showing you random pokemons!</p>
+    <div class="pokemon"></div>
+
+    <a href="/users/logout">Logout</a>
+
+
+    <form class="deletebutton" method="post" action="/users/delete">
+      <input type="submit" value="Delete account"></input>
+    </form>
+
+
+
+
   </div>
+</div>

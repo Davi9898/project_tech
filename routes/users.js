@@ -4,7 +4,8 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 // Load User model
 const User = require('../models/User');
-const { forwardAuthenticated } = require('../config/auth');
+const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
+const app = require('express');
 
 // Login Page
 router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
@@ -18,12 +19,12 @@ router.post('/register', (req, res) => {
   let errors = [];
 
 
-// foutmelding voor wanneer alle velden niet worden ingevult door de gebruiker bij het registreren
+  // foutmelding voor wanneer alle velden niet worden ingevult door de gebruiker bij het registreren
   if (!name || !email || !password || !password2) {
     errors.push({ msg: 'Please enter all fields' });
   }
 
-// 
+  // 
   if (password != password2) {
     errors.push({ msg: 'Passwords do not match' });
   }
@@ -58,6 +59,8 @@ router.post('/register', (req, res) => {
           password
         });
 
+
+        // Hashing van wachtwoord
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
@@ -93,6 +96,23 @@ router.get('/logout', (req, res) => {
   req.logout();
   req.flash('success_msg', 'You have been logged out');
   res.redirect('/users/login');
+});
+
+// Deleted Page
+router.get('/deleted', forwardAuthenticated, (req, res) => res.render('deleted'));
+
+router.post('/delete', ensureAuthenticated, (req, res) => {
+
+  User.findOneAndDelete({ email: req.user.email })
+    .then(() => {
+      res.render("deleted");
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
+
 });
 
 module.exports = router;
