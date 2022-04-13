@@ -3,12 +3,12 @@ const DataApi = {
     type: 'pokemon',
     id: Math.floor(Math.random() * 700),
 }
-const {url, type, id} = DataApi
+const { url, type, id } = DataApi
 const UrlApi = `${url}${type}/${id}`
 
 fetch(UrlApi)
-    .then( (data) => data.json())
-    .then( (pokemon) => DomManipulatie(pokemon) )
+    .then((data) => data.json())
+    .then((pokemon) => DomManipulatie(pokemon))
 
 const DomManipulatie = (data) => {
     const html = `
@@ -16,7 +16,7 @@ const DomManipulatie = (data) => {
     <img src=${data.sprites.front_default}>
     `
 
-    if(document.querySelector('.pokemon')){
+    if (document.querySelector('.pokemon')) {
         const pokemonDiv = document.querySelector('.pokemon')
         pokemonDiv.innerHTML = html
     }
