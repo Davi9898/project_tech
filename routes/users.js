@@ -15,9 +15,9 @@ router.get('/register', forwardAuthenticated, (req, res) => res.render('register
 
 // Register
 router.post('/register', (req, res) => {
+  
   const { name, email, password, password2 } = req.body;
   let errors = [];
-
 
   // foutmelding voor wanneer alle velden niet worden ingevult door de gebruiker bij het registreren
   if (!name || !email || !password || !password2) {

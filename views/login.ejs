@@ -1,20 +1,23 @@
-<div class="container">
+<section>
   <div class="row2">
     <h1> Login </h1>
 
     <%- include ('./partials/messages') %>
 
-      <form action="/users/login" method="POST">
+      <form class="inlogform" action="/users/login" method="POST">
         <label for="email">Email</label>
-        <input type="email" name="email" class="formlogin" placeholder="Enter Email" />
+        <input type="email" name="email"  placeholder="Enter Email" />
 
 
         <label for="password">Password</label>
-        <input type="password" name="password" class="formlogin" placeholder="Enter Password" />
+        <input type="password" name="password"  placeholder="Enter Password" />
 
-        <button type="submit">Login</button>
+        <fieldset>
+          <a href="/users/register">Register</a>
+          <button type="submit">Login</button>
+        </fieldset>
       </form>
 
-      <a href="/users/register">Register</a>
+      
   </div>
-</div>
+</section>

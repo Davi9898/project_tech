@@ -1,26 +1,17 @@
-<div class="container">
+<section>
   <div class="row1">
 
     <h1>Dashboard</h1>
-    <p>Hi <%- user.name %>
-    </p>
-
-
-
-
+    <p>Hi <%- user.name %>  </p>
 
     <p>We love showing you random pokemons!</p>
     <div class="pokemon"></div>
 
     <a href="/users/logout">Logout</a>
 
-
-    <form class="deletebutton" method="post" action="/users/delete">
+    <form method="post" action="/users/delete">
       <input type="submit" value="Delete account"></input>
     </form>
 
-
-
-
   </div>
-</div>
+</section>

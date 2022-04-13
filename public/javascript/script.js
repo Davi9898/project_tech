@@ -16,6 +16,8 @@ const DomManipulatie = (data) => {
     <img src=${data.sprites.front_default}>
     `
 
-    const pokemonDiv = document.querySelector('.pokemon')
-    pokemonDiv.innerHTML = html
+    if(document.querySelector('.pokemon')){
+        const pokemonDiv = document.querySelector('.pokemon')
+        pokemonDiv.innerHTML = html
+    }
 }
